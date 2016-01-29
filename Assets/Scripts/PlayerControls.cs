@@ -5,6 +5,7 @@ public class PlayerControls : MonoBehaviour
 {
 
     public float movementSpeed;
+    public float jumpForce;
     public float speed = 5.0f;
 
     int maxSpeed = 10;
@@ -72,7 +73,7 @@ public class PlayerControls : MonoBehaviour
 
     void Jump()
     {
-        player.AddForce(new Vector2(0, 200));
+        player.AddForce(new Vector2(0, 100*jumpForce));
     }
 
     void Shoot()
