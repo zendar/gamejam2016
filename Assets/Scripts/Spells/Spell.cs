@@ -18,6 +18,9 @@ public class BoltSpell : DirectionalSpell {
 	void OnCollisionEnter2D(Collision2D coll){
 		Unit other = coll.gameObject.GetComponent<Unit>();
 		if(other != null){
+			if(other == sender){
+				return;
+			}
 			// explodeee
 			Detonate(other);
 		}

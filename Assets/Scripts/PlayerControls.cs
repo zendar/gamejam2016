@@ -12,10 +12,13 @@ public class PlayerControls : MonoBehaviour
     bool left, right, jump;
     Rigidbody2D player;
 
+    SpellType activeSpell;
+
     // Use this for initialization
     void Start()
     {
         player = gameObject.GetComponent<Rigidbody2D>();
+        activeSpell = SpellManager.Instance.spells[0];
     }
 
     // Update is called once per frame
@@ -78,8 +81,6 @@ public class PlayerControls : MonoBehaviour
         Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 direction = target - myPos;
         direction.Normalize();
-        // GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
-        // projectile.GetComponent<Rigidbody2D>().velocity = direction * speed;
-        GetComponent<Unit>().CastSpell(SpellManager.Instance.spells[0], direction);
+        GetComponent<Unit>().CastSpell(activeSpell, direction);
     }
 }
