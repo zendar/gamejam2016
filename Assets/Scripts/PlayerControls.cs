@@ -5,6 +5,7 @@ public class PlayerControls : MonoBehaviour
 {
 
     public float movementSpeed;
+    public float jumpForce;
     public GameObject bullet;
     public float speed = 5.0f;
 
@@ -40,14 +41,12 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetButtonDown("jump") && player.velocity.y == 0)
         {
-            Debug.Log("jumped");
             Jump();
         }
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
-        Debug.Log(player.velocity);
     }
 
     void FixedUpdate()
@@ -72,7 +71,7 @@ public class PlayerControls : MonoBehaviour
 
     void Jump()
     {
-        player.AddForce(new Vector2(0, 200));
+        player.AddForce(new Vector2(0, 100*jumpForce));
     }
 
     void Shoot()

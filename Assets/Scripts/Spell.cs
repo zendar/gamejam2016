@@ -35,5 +35,3 @@ public class ContactSpell : Spell{
 }
 
 public class RadiusSpell : Spell{}
-
-public class basicSpell : BoltSpell {}
