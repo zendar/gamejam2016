@@ -29,4 +29,3 @@ public class ContactSpell : Spell{
 }
 
 public class RadiusSpell : Spell{}
-
