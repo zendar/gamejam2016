@@ -39,3 +39,16 @@ public class ContactSpell : Spell{
 }
 
 public class RadiusSpell : Spell{}
+
+public class DamagingBolt : BoltSpell {
+	public float damage;
+	public override void Activate(){
+		speed = 5f;
+		base.Activate();
+	}
+
+	public override void Detonate(Unit hit){
+		sender.DealDamage(hit, this, damage);
+		Destroy(gameObject);
+	}
+}

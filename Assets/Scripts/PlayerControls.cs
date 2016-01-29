@@ -12,7 +12,7 @@ public class PlayerControls : MonoBehaviour
     bool left, right, jump;
     Rigidbody2D player;
 
-    SpellType activeSpell;
+    public SpellType activeSpell;
 
     // Use this for initialization
     void Start()

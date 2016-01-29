@@ -1,13 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FireBolt : BoltSpell {
+public class FireBolt : DamagingBolt {
 	public override void Activate(){
 		speed = 1f;
+		damage = 5f;
 		base.Activate();
-	}
-
-	public override void Detonate(Unit hit){
-		Destroy(hit.gameObject);
 	}
 }

@@ -25,6 +25,9 @@ public class Unit : MonoBehaviour {
 		Spell spell = Instantiate(spellType.prefab, transform.position, Quaternion.identity) as Spell;
 		spell.spellType = spellType;
 		spell.sender = this;
+			
+		Physics2D.IgnoreCollision(GetComponent<Collider2D>(), spell.GetComponent<Collider2D>(), true);
+
 		return spell;		
 	}
 
@@ -40,6 +43,7 @@ public class Unit : MonoBehaviour {
 
 	public Spell CastSpell(SpellType spellType, Vector2 direction){
 		DirectionalSpell spell = SpawnSpell(spellType) as DirectionalSpell;
+		//spell.transform.position += new Vector3(direction.x, direction.y, 0);
 		spell.direction = direction;
 		spell.Activate();
 		OnSpellCast(spell);
@@ -58,5 +62,22 @@ public class Unit : MonoBehaviour {
 	public virtual void OnSpellCast(Spell spell){
 		// Override to add some sort of spellcast effect or something...
 		Debug.Log("Cast spell " + spell.spellType.name + "!");
+	}
+
+	public virtual void Die(Unit attacker, Spell spell){
+		Debug.Log("Got killed by " + spell.spellType.name + " :(");
+		Destroy(gameObject);
+	}
+
+	// Override for effects and whatnot
+	public virtual void TakeDamage(Unit attacker, Spell spell, float damage){
+		health -= damage;
+		if(health <= 0){
+			Die(attacker, spell);
+		}
+	}
+
+	public virtual void DealDamage(Unit defender, Spell spell, float damage){
+		defender.TakeDamage(this, spell, damage);
 	}
 }
