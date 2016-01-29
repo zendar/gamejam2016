@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SceneControllerScript : GravityRunBase
 {
-    public GameObject SpaceshipPrefab;
+//    public GameObject SpaceshipPrefab;
 
 		private static Level.LevelTypes currentLevel = Level.LevelTypes.LEVEL_1;
 		private static Level.LevelTypes lastLevel = Level.LevelTypes.LEVEL_1;
@@ -19,7 +19,7 @@ public class SceneControllerScript : GravityRunBase
 
     void Awake()
     {
-		Cursor.visible = false;
+//		Cursor.visible = false;
 //        currentLevel = LevelTypes.LEVEL_1_DESCENT;
         SetupLevels();
 		
@@ -245,18 +245,6 @@ public class SceneControllerScript : GravityRunBase
                 Debug.Log("FadeIn: " + currentLevel.ToString());
 //                gameObject.SendMessage("startFadeIn", 2.0F);
                 break;
-            case Level.LevelTypes.LEVEL_1_DESCENT:
-                Debug.Log("FadeIn: " + currentLevel.ToString());
-                gameObject.SendMessage("startFadeIn", fadeTime);
-                break;
-            case Level.LevelTypes.LEVEL_1_REACTOR:
-                Debug.Log("FadeIn: " + currentLevel.ToString());
-                gameObject.SendMessage("startFadeIn", fadeTime);
-                break;
-            case Level.LevelTypes.LEVEL_1_CHASE:
-                Debug.Log("FadeIn: " + currentLevel.ToString());
-                gameObject.SendMessage("startFadeIn", fadeTime);
-                break;
             case Level.LevelTypes.LEVEL_POINTCOUNT:
                 Debug.Log("FadeIn: " + currentLevel.ToString());
                 gameObject.SendMessage("startFadeIn", fadeTime);
@@ -299,52 +287,11 @@ public class SceneControllerScript : GravityRunBase
 	public void spawnPlayerShip()
 	{
         GameObject newShip = null;
-		if (false)
-		{
-            if (Network.isClient || Network.isServer)
-            {
-                newShip = (GameObject)Network.Instantiate(SpaceshipPrefab, SpawnPoint.transform.position, Quaternion.identity, 0);
-                newShip.name = SpaceshipPrefab.name;
-                Debug.Log("Created ship. Server[" + Network.isServer + "], Client [" + Network.isClient + "]");
-
-                GetComponent<Camera>().SendMessage("reAquireTarget", newShip);
-
-
-            }
-		}
-		else
-		{
-            Debug.Log("Created ship. Standalone version");
-            newShip = Instantiate(SpaceshipPrefab) as GameObject;
-			newShip.name = SpaceshipPrefab.name;
-			if (SpawnPoint != null)
-			{
-				newShip.GetComponent<Transform>().position = SpawnPoint.transform.position;
-				newShip.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0,0, SpawnPoint.transform.eulerAngles.z));
-
-	        	newShip.GetComponent<Rigidbody>().position = SpawnPoint.transform.position;
-				newShip.GetComponent<Rigidbody>().rotation = Quaternion.Euler(new Vector3(0,0, SpawnPoint.transform.eulerAngles.z));
-				Debug.Log("Found spawnpoint @ "+SpawnPoint.transform.position);
-			}
-			else
-			{
-				Debug.Log("Could not find spawnpoint");
-	        	newShip.GetComponent<Rigidbody>().position = lastPlayerPosition;
-			}
-            GetComponent<Camera>().SendMessage("reAquireTarget", newShip);
-        }
-
-        //if (newShip.networkView.isMine)
-        //{
-        //    camera.SendMessage("reAquireTarget", newShip);
-        //}
 
 	}
 
     private IEnumerator EndLevelAndFadeout(int secs, Level.LevelTypes level)
     {
-//        float savedTimeScale = Time.timeScale;
-//        Time.timeScale = 0;
         AudioListener.pause = true;
 
 
