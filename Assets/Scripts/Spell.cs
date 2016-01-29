@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class Spell : MonoBehaviour{
+	public SpellType spellType;
+	public Unit sender;
+
+	public virtual void Activate(){}
+}
+
+// Cast
+public class DirectionalSpell : Spell {
+	public Vector2 direction;
+}
+
+public class BoltSpell : DirectionalSpell {
+	void OnCollisionEnter2D(Collision2D coll){
+		Unit other = coll.gameObject.GetComponent<Unit>();
+		if(other != null){
+			// explodeee
+			Detonate(other);
+		}
+	}
+	public virtual void Detonate(Unit hit){}
+}
+
+// Activated on contact with another unit
+public class ContactSpell : Spell{
+	public Unit target;
+}
+
+public class RadiusSpell : Spell{}
+
