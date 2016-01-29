@@ -16,6 +16,5 @@ public class BasicMovement : MonoBehaviour
     {
         var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
         transform.position += move * Speed * Time.deltaTime;
-
     }
 }

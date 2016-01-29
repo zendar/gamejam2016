@@ -5,7 +5,6 @@ public class PlayerControls : MonoBehaviour
 {
 
     public float movementSpeed;
-    public GameObject bullet;
     public float speed = 5.0f;
 
     int maxSpeed = 10;
@@ -40,14 +39,12 @@ public class PlayerControls : MonoBehaviour
         }
         if (Input.GetButtonDown("jump") && player.velocity.y == 0)
         {
-            Debug.Log("jumped");
             Jump();
         }
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }
-        Debug.Log(player.velocity);
     }
 
     void FixedUpdate()
@@ -81,7 +78,8 @@ public class PlayerControls : MonoBehaviour
         Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
         Vector2 direction = target - myPos;
         direction.Normalize();
-        GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().velocity = direction * speed;
+        // GameObject projectile = (GameObject)Instantiate(bullet, myPos, Quaternion.identity);
+        // projectile.GetComponent<Rigidbody2D>().velocity = direction * speed;
+        GetComponent<Unit>().CastSpell(SpellManager.Instance.spells[0], direction);
     }
 }

@@ -23,11 +23,12 @@ public class BoltSpell : DirectionalSpell {
 		}
 	}
 	public virtual void Detonate(Unit hit){}
-    public override void Activate()
-    {
+    public override void Activate(){
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }
 }
+
+
 
 // Activated on contact with another unit
 public class ContactSpell : Spell{

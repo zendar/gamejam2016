@@ -10,6 +10,10 @@ public class SpellManager : MonoBehaviour {
 			return _instance;
 		}
 	}
+
+	void Awake(){
+		_instance = this;
+	}
 }
 
 [System.Serializable]
