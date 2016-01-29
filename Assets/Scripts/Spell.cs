@@ -13,6 +13,8 @@ public class DirectionalSpell : Spell {
 }
 
 public class BoltSpell : DirectionalSpell {
+    public float speed;
+
 	void OnCollisionEnter2D(Collision2D coll){
 		Unit other = coll.gameObject.GetComponent<Unit>();
 		if(other != null){
@@ -21,6 +23,10 @@ public class BoltSpell : DirectionalSpell {
 		}
 	}
 	public virtual void Detonate(Unit hit){}
+    public override void Activate()
+    {
+        GetComponent<Rigidbody2D>().velocity = direction * speed;
+    }
 }
 
 // Activated on contact with another unit
@@ -30,3 +36,4 @@ public class ContactSpell : Spell{
 
 public class RadiusSpell : Spell{}
 
+public class basicSpell : BoltSpell {}
