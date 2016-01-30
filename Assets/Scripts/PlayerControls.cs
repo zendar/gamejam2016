@@ -10,36 +10,22 @@ public class PlayerControls : MonoBehaviour
     public float maxSpeed = 10;
 
     int minSpeed = -10;
-    bool left, right, jump;
     Rigidbody2D player;
 
     public bool grounded = false;
+
+    private Unit _unit;
 
     // Use this for initialization
     void Start()
     {
         player = gameObject.GetComponent<Rigidbody2D>();
+        _unit = GetComponent<Unit>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("right"))
-        {
-            right = true;
-        }
-        else
-        {
-            right = false;
-        }
-        if (Input.GetButton("left"))
-        {
-            left = true;
-        }
-        else
-        {
-            left = false;
-        }
         if (Input.GetButtonDown("jump") && grounded)
         {
             Jump();
@@ -48,22 +34,9 @@ public class PlayerControls : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (right)
-        {   
-            player.AddForce(new Vector2(movementSpeed, 0));
-            if (player.velocity.x > maxSpeed)
-            {
-                player.velocity = player.velocity.normalized * maxSpeed;
-            }
-        }
-        else if (left)
-        {
-            player.AddForce(new Vector2(-movementSpeed, 0));
-            if (player.velocity.x < minSpeed)
-            {
-                player.velocity = player.velocity.normalized * maxSpeed;
-            }
-        }
+        float horizontal = Input.GetAxis("Horizontal");
+        if(horizontal != 0)
+            _unit.Move(horizontal);
     }
 
     void Jump()

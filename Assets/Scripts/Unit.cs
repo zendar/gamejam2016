@@ -6,11 +6,20 @@ public class Unit : MonoBehaviour {
 	public float startHealth;
 	public float mana;
 
+	public float maxSpeed;
+	public float walkSpeed;
+
 	public SpellType contactSpell;
 	public float contactSpellCooldown;
 
+	private Rigidbody2D _rbody; 
+
+	void Start(){
+		_rbody = GetComponent<Rigidbody2D>();
+	}
+
 	void OnCollisionEnter2D(Collision2D coll){
-		if(contactSpell == null || contactSpellCooldown > 0)
+		if(contactSpell == null || string.IsNullOrEmpty(contactSpell.name) || contactSpellCooldown > 0)
 			return;
 
 		Unit other = coll.gameObject.GetComponent<Unit>();
@@ -80,4 +89,31 @@ public class Unit : MonoBehaviour {
 	public virtual void DealDamage(Unit defender, Spell spell, float damage){
 		defender.TakeDamage(this, spell, damage);
 	}
+
+	public virtual void Move(float direction){
+        if(IsAboveMaxSpeed(_rbody.velocity.x))
+            return;
+
+        if(direction > 0){
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }else if(direction < 0){
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+
+        _rbody.velocity = _rbody.velocity + new Vector2(direction * walkSpeed, 0);
+        if(IsAboveMaxSpeed(_rbody.velocity.x)){
+            if(_rbody.velocity.x > 0){
+                _rbody.velocity = new Vector2(maxSpeed, _rbody.velocity.y);
+            }else{
+                _rbody.velocity = new Vector2(-maxSpeed, _rbody.velocity.y);
+            }
+        }
+   	}
+
+    bool IsAboveMaxSpeed(float lSpeed){
+        if(maxSpeed < lSpeed || -maxSpeed > lSpeed)
+            return true;
+
+        return false;
+    }
 }

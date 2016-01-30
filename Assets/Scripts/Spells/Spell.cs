@@ -42,7 +42,8 @@ public class RadiusSpell : Spell{}
 public class DamagingBolt : BoltSpell {
 	public float damage;
 	public override void Activate(){
-		speed = 5f;
+		if(speed == 0f)
+			speed = 5f;
 		base.Activate();
 	}
 

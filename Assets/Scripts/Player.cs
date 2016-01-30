@@ -13,7 +13,7 @@ public class Player : MonoBehaviour{
 
 	void Awake(){
 		_instance = this;
-		GameDataScript.registerPlayerShip(gameObject);
+		SimpleCameraFollow.target = transform;
 	}
 
 	void Start(){

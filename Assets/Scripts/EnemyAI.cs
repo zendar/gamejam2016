@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour{
-	public float walkSpeed = 10f;
 	public float jumpForce = 2f;
 
 	// The distance the enemy want to be from the player
@@ -12,6 +11,7 @@ public class EnemyAI : MonoBehaviour{
 
 	private Player _player;
 	private Rigidbody2D _rbody;
+	private Unit _unit;
 
 	void Start(){
 		_player = Player.Instance;
@@ -21,6 +21,7 @@ public class EnemyAI : MonoBehaviour{
 		}
 
 		_rbody = GetComponent<Rigidbody2D>();
+		_unit = GetComponent<Unit>();
 	}
 
 	void FixedUpdate(){
@@ -28,8 +29,9 @@ public class EnemyAI : MonoBehaviour{
 			
 		if(delta.x > targetDistance.x || delta.y > targetDistance.y || delta.x < -targetDistance.x || delta.y < -targetDistance.y){
 			delta.Normalize();
-			Vector3 targetVelocity = delta * walkSpeed;
-			_rbody.velocity = new Vector2(targetVelocity.x, _rbody.velocity.y);
+			// Vector3 targetVelocity = delta * walkSpeed;
+			// _rbody.velocity += new Vector2(targetVelocity.x, _rbody.velocity.y);
+			_unit.Move(delta.x);
 		}
 	}
 

@@ -9,7 +9,7 @@ public class PlayerSpellControls : MonoBehaviour{
 	}
 
 	void Update(){
-		if(Input.GetKeyDown("Fire1")){
+		if(Input.GetButtonDown("Fire1")){
 			CastSpell();
 		}
 	}
@@ -18,11 +18,11 @@ public class PlayerSpellControls : MonoBehaviour{
 		if(activeSpell >= spells.Length)
 			return;
 
-        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 direction = target - myPos;
+    	Camera.main.ResetWorldToCameraMatrix();    
+        Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 myPos = new Vector2(transform.position.x, transform.position.y);
+        Vector3 direction = target - myPos;
         direction.Normalize();
-
         GetComponent<Unit>().CastSpell(spells[activeSpell], direction);
 	}
 }
