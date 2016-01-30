@@ -1,9 +1,15 @@
 fileFormatVersion: 2
 guid: 8931b6995c34e954ba6432fd0b292074
-timeCreated: 1454107486
+timeCreated: 1454165686
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: wizardman jumping_0
+    21300002: wizardman jumping_1
+    21300004: wizardman jumping_2
+    21300006: wizardman jumping_3
+    21300008: wizardman jumping_4
+    21300010: wizardman jumping_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,26 +36,92 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: -1
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: wizardman jumping_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 4
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: wizardman jumping_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 4
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: wizardman jumping_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 4
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: wizardman jumping_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: wizardman jumping_4
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 4
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: wizardman jumping_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 
