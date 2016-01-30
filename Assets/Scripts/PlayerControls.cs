@@ -13,13 +13,11 @@ public class PlayerControls : MonoBehaviour
     bool left, right, jump;
     Rigidbody2D player;
 
-    public SpellType activeSpell;
 
     // Use this for initialization
     void Start()
     {
         player = gameObject.GetComponent<Rigidbody2D>();
-        activeSpell = SpellManager.Instance.spells[0];
     }
 
     // Update is called once per frame
@@ -45,16 +43,12 @@ public class PlayerControls : MonoBehaviour
         {
             Jump();
         }
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shoot();
-        }
     }
 
     void FixedUpdate()
     {
         if (right)
-        {
+        {   
             player.AddForce(new Vector2(movementSpeed, 0));
             if (player.velocity.x > maxSpeed)
             {
@@ -74,14 +68,5 @@ public class PlayerControls : MonoBehaviour
     void Jump()
     {
         player.AddForce(new Vector2(0, 100*jumpForce));
-    }
-
-    void Shoot()
-    {
-        Vector2 target = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
-        Vector2 direction = target - myPos;
-        direction.Normalize();
-        GetComponent<Unit>().CastSpell(activeSpell, direction);
     }
 }
