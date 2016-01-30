@@ -13,6 +13,7 @@ public class PlayerControls : MonoBehaviour
     bool left, right, jump;
     Rigidbody2D player;
 
+    public bool grounded = false;
 
     // Use this for initialization
     void Start()
@@ -39,7 +40,7 @@ public class PlayerControls : MonoBehaviour
         {
             left = false;
         }
-        if (Input.GetButtonDown("jump") && player.velocity.y == 0)
+        if (Input.GetButtonDown("jump") && grounded)
         {
             Jump();
         }

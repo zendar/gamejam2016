@@ -7,7 +7,6 @@ public class Spell : MonoBehaviour{
 	public virtual void Activate(){}
 }
 
-// Cast
 public class DirectionalSpell : Spell {
 	public Vector2 direction;
 }
