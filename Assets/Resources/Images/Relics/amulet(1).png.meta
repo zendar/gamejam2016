@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: f938fcceaa6cf704f97fc557207d7c0e
-timeCreated: 1454166965
+guid: c7c8974da0dbfac4f832623ba748848f
+timeCreated: 1454168257
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Cyclops Swing charge_0
-    21300002: Cyclops Swing charge_1
+    21300000: amulet(1)_0
+    21300002: amulet(1)_1
+    21300004: amulet(1)_2
+    21300006: amulet(1)_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -28,7 +30,7 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -2
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
@@ -52,51 +54,50 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Cyclops Swing charge_0
+    - name: amulet(1)_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 1
-        width: 77
-        height: 99
+        x: 13
+        y: 13
+        width: 6
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 6.5, y: 49.5}
-        - {x: -34.5, y: 7.5}
-        - {x: -33.5, y: -4.5}
-        - {x: -32.5, y: -7.5}
-        - {x: -33.5, y: -21.5}
-        - {x: -38.5, y: -38.5}
-        - {x: -38.5, y: -49.5}
-        - {x: -7.5, y: -49.5}
-        - {x: 38.5, y: 32.5}
-        - {x: 38.5, y: 49.5}
-    - name: Cyclops Swing charge_1
+      outline: []
+    - name: amulet(1)_1
       rect:
         serializedVersion: 2
-        x: 178
-        y: 1
-        width: 78
-        height: 99
+        x: 46
+        y: 13
+        width: 5
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 12, y: 49.5}
-        - {x: 8, y: 48.5}
-        - {x: 1, y: 34.5}
-        - {x: -28, y: 12.5}
-        - {x: -34, y: 1.5}
-        - {x: -34, y: -4.5}
-        - {x: -33, y: -7.5}
-        - {x: -34, y: -21.5}
-        - {x: -39, y: -38.5}
-        - {x: -39, y: -49.5}
-        - {x: -8, y: -49.5}
-        - {x: 39, y: 27.5}
-        - {x: 39, y: 49.5}
+      outline: []
+    - name: amulet(1)_2
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 13
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: amulet(1)_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 13
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
     outline: []
   spritePackingTag: 
   userData: 

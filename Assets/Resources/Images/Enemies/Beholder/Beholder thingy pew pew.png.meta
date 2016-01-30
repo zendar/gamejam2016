@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: b478c8317200a844ca1bedb69b9d35cb
-timeCreated: 1454115016
+timeCreated: 1454166636
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Beholder thingy pew pew_0
+    21300002: Beholder thingy pew pew_1
+    21300004: Beholder thingy pew pew_2
+    21300006: Beholder thingy pew pew_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,30 +30,98 @@ TextureImporter:
   cubemapConvolutionSteps: 7
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -2
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
-    wrapMode: -1
-  nPOTScale: 1
+    wrapMode: 1
+  nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
-  alphaIsTransparency: 0
-  textureType: -1
+  alphaIsTransparency: 1
+  textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Beholder thingy pew pew_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 19.5}
+        - {x: -31, y: 3.5}
+        - {x: -20, y: -19.5}
+        - {x: 20, y: -19.5}
+        - {x: 31, y: -0.5}
+        - {x: 31, y: 19.5}
+    - name: Beholder thingy pew pew_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 9
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 19.5}
+        - {x: -31, y: 3.5}
+        - {x: -20, y: -19.5}
+        - {x: 20, y: -19.5}
+        - {x: 31, y: -0.5}
+        - {x: 31, y: 19.5}
+    - name: Beholder thingy pew pew_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 9
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 19.5}
+        - {x: -31, y: 3.5}
+        - {x: -20, y: -19.5}
+        - {x: 20, y: -19.5}
+        - {x: 31, y: -0.5}
+        - {x: 31, y: 19.5}
+    - name: Beholder thingy pew pew_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 9
+        width: 62
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 19.5}
+        - {x: -31, y: 3.5}
+        - {x: -20, y: -19.5}
+        - {x: 20, y: -19.5}
+        - {x: 31, y: -0.5}
+        - {x: 31, y: 19.5}
     outline: []
   spritePackingTag: 
   userData: 
