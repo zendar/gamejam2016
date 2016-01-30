@@ -7,7 +7,7 @@ public class PlayerSpellControls : MonoBehaviour{
 
     private float shotCounter;
 	void Start(){
-		spells = SpellManager.Instance.spells;
+	//	spells = SpellManager.Instance.spells;
         shotCounter = shotRate;
 	}
 
