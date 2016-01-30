@@ -10,27 +10,18 @@ public class Level : MonoBehaviour{
 
 	public SpellType spellReward;
 
+	private static Level _instance;
+	public static Level Instance{
+		get{
+			return _instance;
+		}
+	}
+
 	void Start(){
 		player = Player.Instance;
 	}
 
-	bool CheckCompleted(){
-		foreach(string relic in relics){
-			if(!player.relics.Contains(relic)){
-				return false;
-			}
-		}
-		return true;
-	}
-
 	void Restart(){
 		LevelManager.LoadLevel(name);
-	}
-
-	void RelicCollected(string relic){
-		Debug.Log("Colected a relic");
-		if(CheckCompleted()){
-			LevelManager.LoadLevel(LevelManager.Instance.levels[index+1]);
-		}
 	}
 }

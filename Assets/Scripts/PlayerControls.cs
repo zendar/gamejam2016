@@ -6,8 +6,6 @@ public class PlayerControls : MonoBehaviour
 
     public float movementSpeed;
     public float jumpForce;
-    public float speed = 5.0f;
-    public float maxSpeed = 10;
 
     int minSpeed = -10;
     Rigidbody2D player;

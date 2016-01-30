@@ -16,8 +16,7 @@ public class Player : MonoBehaviour{
 		SimpleCameraFollow.target = transform;
 	}
 
-	void Start(){
-	}
+	void Start(){}
 
 	public void PickUpRelic(string relic){
 		relics.Add(relic);
