@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour{
 	private Player _player;
 	private Rigidbody2D _rbody;
 	private Unit _unit;
+	public bool movementEnabled;
 
 	void Start(){
 		_player = Player.Instance;
@@ -27,11 +28,11 @@ public class EnemyAI : MonoBehaviour{
 	void FixedUpdate(){
 		Vector3 delta = _player.transform.position - transform.position;
 			
-		if(delta.x > targetDistance.x || delta.y > targetDistance.y || delta.x < -targetDistance.x || delta.y < -targetDistance.y){
-			delta.Normalize();
-			// Vector3 targetVelocity = delta * walkSpeed;
-			// _rbody.velocity += new Vector2(targetVelocity.x, _rbody.velocity.y);
-			_unit.Move(delta.x);
+		if(delta.x > targetDistance.x || delta.x < -targetDistance.x){
+			if(movementEnabled){
+				delta.Normalize();
+				_unit.Move(delta.x);
+			}
 		}
 	}
 
@@ -39,5 +40,21 @@ public class EnemyAI : MonoBehaviour{
 		if(grounded){
 			_rbody.AddForce(new Vector2(0, 100*jumpForce));
 		}
+	}
+
+	void OnCollisionStay2D(Collision2D coll){
+		if(coll.gameObject.GetComponent<PlayerControls>() != null){			
+			movementEnabled = false;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D coll){
+		if(coll.gameObject.GetComponent<PlayerControls>() != null){			
+			movementEnabled = true;
+		}
+	}
+
+	void OnCollisionEnter(){
+		
 	}
 }

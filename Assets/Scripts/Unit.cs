@@ -13,20 +13,36 @@ public class Unit : MonoBehaviour {
 	public float contactSpellCooldown;
 
 	private Rigidbody2D _rbody; 
+	private ParticleSystem _particles;
 
 	void Start(){
 		_rbody = GetComponent<Rigidbody2D>();
+		_particles = GetComponentInChildren<ParticleSystem>();
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if(contactSpell == null || string.IsNullOrEmpty(contactSpell.name) || contactSpellCooldown > 0)
-			return;
+		if(CanCastContactspell(coll.gameObject))
+			CastContactSpell(contactSpell, coll.gameObject.GetComponent<Unit>());
+	}
 
-		Unit other = coll.gameObject.GetComponent<Unit>();
-		if(other != null){
-			// Trigger contact spell
-			CastContactSpell(contactSpell, other);
+	void OnCollisionStay2D(Collision2D coll){
+		if(CanCastContactspell(coll.gameObject))
+			CastContactSpell(contactSpell, coll.gameObject.GetComponent<Unit>());
+	}
+
+	public bool CanCastContactspell(GameObject other){
+		if(contactSpell == null || string.IsNullOrEmpty(contactSpell.name) || contactSpellCooldown > 0)
+			return false;
+
+
+		Unit otherUnit = other.gameObject.GetComponent<Unit>();
+		if(otherUnit != null){
+			if(friendly && !otherUnit.friendly || !friendly && otherUnit.friendly){
+				return true;
+			}
+			return false;
 		}
+		return false;
 	}
 
 	// Just instantiates the spell and sets the spellType and server variables
@@ -75,6 +91,13 @@ public class Unit : MonoBehaviour {
 
 	public virtual void Die(Unit attacker, Spell spell){
 		Debug.Log("Got killed by " + spell.spellType.name + " :(");
+			
+		if(_particles != null){
+			_particles.transform.SetParent(null, false);
+			_particles.transform.position = transform.position;
+			Destroy(_particles.gameObject, 3.0f); // if particles live for at most 5 secs
+		}
+
 		Destroy(gameObject);
 	}
 
@@ -83,6 +106,10 @@ public class Unit : MonoBehaviour {
 		health -= damage;
 		if(health <= 0){
 			Die(attacker, spell);
+		}
+
+		if(_particles != null){
+			_particles.Emit((int)damage*10);
 		}
 	}
 
