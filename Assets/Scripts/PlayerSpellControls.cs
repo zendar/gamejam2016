@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class PlayerSpellControls : MonoBehaviour{
 	public SpellType[] spells;
+    public float shotRate;
 	public int activeSpell; // an index for spells
 
+    private float shotCounter;
 	void Start(){
-		spells = SpellManager.Instance.spells;
+	//	spells = SpellManager.Instance.spells;
+        shotCounter = shotRate;
 	}
 
 	void Update(){
-		if(Input.GetButtonDown("Fire1")){
+        shotCounter -= Time.deltaTime;
+
+		if(Input.GetButtonDown("Fire1") && shotCounter <= 0){
 			CastSpell();
+            shotCounter = shotRate;
 		}
 	}
 
@@ -23,6 +29,8 @@ public class PlayerSpellControls : MonoBehaviour{
         Vector3 myPos = new Vector2(transform.position.x, transform.position.y);
         Vector3 direction = target - myPos;
         direction.Normalize();
-        GetComponent<Unit>().CastSpell(spells[activeSpell], direction);
+        Vector2 normalized = (Vector2)direction;
+        normalized = normalized / normalized.magnitude;
+        GetComponent<Unit>().CastSpell(spells[activeSpell], normalized);
 	}
 }
