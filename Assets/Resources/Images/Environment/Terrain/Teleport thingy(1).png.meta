@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 5293e2ceb389ea047af583e8713ae182
+timeCreated: 1454193392
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Teleport thingy(1)_0
+    21300002: Teleport thingy(1)_1
+    21300004: Teleport thingy(1)_2
+    21300006: Teleport thingy(1)_3
+    21300008: Teleport thingy(1)_4
+    21300010: Teleport thingy(1)_5
+    21300012: Teleport thingy(1)_6
+    21300014: Teleport thingy(1)_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Teleport thingy(1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_2
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_3
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_4
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    - name: Teleport thingy(1)_7
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 14
+        width: 64
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 25.5}
+        - {x: -32, y: 14.5}
+        - {x: -32, y: -25.5}
+        - {x: 32, y: -25.5}
+        - {x: 32, y: -2.5}
+        - {x: 24, y: 25.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
