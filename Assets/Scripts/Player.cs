@@ -19,7 +19,7 @@ public class Player : MonoBehaviour{
 	void Start(){
 	}
 
-	void CastSpell(){
-		
+	public void PickUpRelic(string relic){
+		relics.Add(relic);
 	}
 }
