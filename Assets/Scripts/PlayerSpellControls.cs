@@ -23,6 +23,7 @@ public class PlayerSpellControls : MonoBehaviour{
         Vector3 myPos = new Vector2(transform.position.x, transform.position.y);
         Vector3 direction = target - myPos;
         direction.Normalize();
-        GetComponent<Unit>().CastSpell(spells[activeSpell], direction);
+        GetComponent<Unit>().CastSpell(spells[activeSpell], direction.normalized);
+        Debug.Log(direction.normalized);
 	}
 }
