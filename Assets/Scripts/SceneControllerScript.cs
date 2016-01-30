@@ -2,12 +2,10 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SceneControllerScript : GravityRunBase
+public class SceneControllerScript : MonoBehaviour
 {
-//    public GameObject SpaceshipPrefab;
-
-		private static Level.LevelTypes currentLevel = Level.LevelTypes.LEVEL_1;
-		private static Level.LevelTypes lastLevel = Level.LevelTypes.LEVEL_1;
+	private static Level.LevelTypes currentLevel = Level.LevelTypes.LEVEL_1;
+	private static Level.LevelTypes lastLevel = Level.LevelTypes.LEVEL_1;
 
     private static Dictionary<Level.LevelTypes, Level> Levels = new Dictionary<Level.LevelTypes, Level>();
     public GameObject EndOfLevelInfo;
@@ -34,7 +32,7 @@ public class SceneControllerScript : GravityRunBase
 		{
 			Debug.Log("CurrentLevel is = "+currentLevel);
 		// Spawn the player
-		spawnPlayerShip();
+//		spawnPlayer();
 
         GameManager.Instance.AddObserver(this.gameObject, GameManager.EventTypes.PLAYER_KILLED);
 		}
@@ -66,33 +64,7 @@ public class SceneControllerScript : GravityRunBase
 		l = new Level(Level.LevelTypes.LEVEL_2,"Descent2","testbed_02");
 		l.checkCryptoLocks = true;
         Levels.Add(l.getLevelType(), l);
-				
-								
-																/*		
-//		LevelPart part = new LevelPart("Descent","level_01_descent");
-		LevelPart part = new LevelPart("Descent","testbed_01");
-		part.checkCryptoLocks = true;
-		l.addPart(part);
-		part = new LevelPart("Reactor","level_01_reactor");
-		l.addPart(part);
-		part = new LevelPart("Escape","level_01_chase");
-		l.addPart(part);
-		part = new LevelPart("Pointcount","level_pointcount");
-		l.addPart(part);
-/*		
-		Level l = new Level(Level.LevelTypes.LEVEL_1_DESCENT);
-        l.checkCryptoLocks = true;
-        Levels.Add(l.getLevelType(), l);
 
-        l = new Level(Level.LevelTypes.LEVEL_1_REACTOR);
-        l.checkCryptoLocks = false;
-        Levels.Add(l.getLevelType(), l);
-
-        l = new Level(Level.LevelTypes.LEVEL_1_CHASE);
-        l.checkCryptoLocks = false;
-        Levels.Add(l.getLevelType(), l);
-*/
-        // Massive debug ball of wtf
         Debug.Log("LEVELS have been setup!");
         //foreach (KeyValuePair<LevelTypes, Level> pair in Levels)
         //{
@@ -284,12 +256,6 @@ public class SceneControllerScript : GravityRunBase
     }
 	
 	
-	public void spawnPlayerShip()
-	{
-        GameObject newShip = null;
-
-	}
-
     private IEnumerator EndLevelAndFadeout(int secs, Level.LevelTypes level)
     {
         AudioListener.pause = true;
@@ -370,8 +336,6 @@ public class SceneControllerScript : GravityRunBase
         return "";
     }
 
-    private Vector3 lastPlayerPosition;
-
     public void playerDied(GameObject spaceship, bool emptyFuel)
     {
         if (GameDataScript.lives < 0)
@@ -379,8 +343,6 @@ public class SceneControllerScript : GravityRunBase
             playerGameOver(spaceship);
             return;
         }
-
-        lastPlayerPosition = spaceship.GetComponent<Rigidbody>().position;
 
         StartCoroutine(LifeLost(spaceship,emptyFuel));
 
@@ -405,7 +367,6 @@ public class SceneControllerScript : GravityRunBase
         }
 
         Debug.Log("Life Lost. Empty Fuel = "+emptyFuel);
-        GameDataScript.modifyFuel(-GameDataScript.getFuel());
 		if (emptyFuel)
 	        HUDScript.showNoMoreFuelYouDiedInfoText();
 		else
@@ -451,27 +412,18 @@ public class SceneControllerScript : GravityRunBase
             GameObject.Destroy(exploder);
         }
         yield return new WaitForSeconds(1);
-		spawnPlayerShip();
+//		spawnPlayer();
         HUDScript.showGetReadyInfoText();
     }
 
     IEnumerator GameOver()
     {
-        GameDataScript.modifyFuel(-GameDataScript.getFuel());
         HUDScript.showGameoverinfoText();
-//        Instantiate(gameOverText);
-        GetComponent<Camera>().SendMessage("PostHighscore");
-
         yield return new WaitForSeconds(8);
         GameDataScript.resetOnGameOver();
 		resetLevels();
         GetComponent<Camera>().SendMessage("loadLevel", Level.LevelTypes.MENU);
-
-        
-
-        //		Application.LoadLevel(SceneControllerScript.LevelTypes.MENU); // Load start-level (main menu?)
     }
-	
 	
 	private void resetLevels()
 	{
@@ -486,7 +438,6 @@ public class SceneControllerScript : GravityRunBase
 	}
 
 
-//    Object[] PausedParticles = 
     public void PauseGame()
     {
         Object[] objects = FindObjectsOfType(typeof(ParticleEmitter));

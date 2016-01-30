@@ -7,7 +7,6 @@ public class HUDScript : MonoBehaviour {
     public GUIText InfoTextPrefab;
 
     public Texture HealthbarTexture;
-    public Texture FuelbarTexture;
 
     public Texture InfobarLeft;
     public Texture InfobarLeftTile;
@@ -66,7 +65,6 @@ public class HUDScript : MonoBehaviour {
     {
         //UpdateGuiBackground();
         UpdateHudBackgroundGraphics();
-        UpdateFuelGraphics();
         UpdateHealthGraphics();
         UpdateLivesGraphics();
 
@@ -294,25 +292,6 @@ public class HUDScript : MonoBehaviour {
     
     }
 
-    void UpdateFuelGraphics()
-    {
-        if (FuelbarTexture == null)
-            return;
-
-        int percent = (int)(FuelAndHealthbarWidth * ((float)GameDataScript.getFuel() / (float)GameDataScript.DEFAULT_FUEL));
-        int remainder = FuelAndHealthbarWidth - percent;
-        if (percent < 0)
-        {
-            percent = 0;
-        }
-
-//        		Debug.Log("percent = "+percent+", remainder = "+remainder);
-
-        GUI.BeginGroup(new Rect(8 + remainder, Screen.height - 64, percent, 64));
-        GUI.DrawTexture(new Rect(-remainder, 0, 512, 64), FuelbarTexture, ScaleMode.ScaleAndCrop, true, 0.0F);
-        GUI.EndGroup();
-    }
-
     void UpdateHealthGraphics()
     {
         if (HealthbarTexture == null)
@@ -354,8 +333,6 @@ public class HUDScript : MonoBehaviour {
 		{
 			totaltime = Time.time - level.StarTime;
 		}
-        int offset = 0;
-
 
 		int minutes = Mathf.FloorToInt(totaltime / 60F);
 		int seconds = Mathf.FloorToInt(totaltime - minutes * 60);

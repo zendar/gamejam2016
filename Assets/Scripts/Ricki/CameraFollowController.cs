@@ -31,7 +31,7 @@ public class CameraFollowController : MonoBehaviour
             cameraAnchor = playerShip.transform.Find("CameraAnchor");
             if (cameraAnchor == null)
             {
-                Debug.LogWarning("Camera Anchor not found!");
+//                Debug.LogWarning("Camera Anchor not found!");
             }
 
 			StandardZOffset = transform.position.z;
@@ -57,12 +57,12 @@ public class CameraFollowController : MonoBehaviour
             cameraAnchor = playerShip.transform.Find("CameraAnchor");
             if (cameraAnchor == null)
             {
-                Debug.LogWarning("Camera Anchor not found!");
+////                Debug.LogWarning("Camera Anchor not found!");
 				Debug.Log("PlayerShip @ "+playerShip.transform.position);
             }
             else
             {
-				Debug.Log("PlayerShip @ "+playerShip.transform.position+", CameraAnchor @ "+cameraAnchor.transform.position);
+//				Debug.Log("PlayerShip @ "+playerShip.transform.position+", CameraAnchor @ "+cameraAnchor.transform.position);
             }
 
 			StandardZOffset = transform.position.z;

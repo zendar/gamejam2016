@@ -30,12 +30,6 @@ public class GameManager : MonoBehaviour {
 
     public void AddObserver(GameObject go, EventTypes nt)
     {
-        if (nt == null)
-        {
-            Debug.LogError("Could not add ["+go+"] as observer to null Event");
-            return;
-        }
-
         List<GameObject> gameObjects;
 
         if (Observers.TryGetValue(nt, out gameObjects))

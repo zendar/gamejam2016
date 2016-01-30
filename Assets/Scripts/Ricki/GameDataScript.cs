@@ -15,7 +15,6 @@ public class GameDataScript : MonoBehaviour {
 	public const int DEFAULT_LIVES = 3;
 	
 	public static int score = DEFAULT_SCORE;
-	private static float fuel = DEFAULT_FUEL;
 	private static float health = DEFAULT_HEALTH;
     public static int lives = DEFAULT_LIVES;
     public enum WeaponTypes
@@ -132,42 +131,13 @@ public class GameDataScript : MonoBehaviour {
 	}
 
 
-    public static void modifyFuel(float deltaFuel)
-    {
-		if (true)
-			return;
-
-        fuel += deltaFuel;
-
-// Could use this. Depends if we need logic in the checks.
-//        fuel = Mathf.Clamp(fuel, 0, DEFAULT_FUEL);
-
-        if (fuel < 0)
-        {
-            fuel = 0;
-        }
-
-        if (fuel > DEFAULT_FUEL)
-        {
-            fuel = DEFAULT_FUEL;
-        }
-    }
-
-    public static int getFuel()
-    {
-        return (int)fuel;
-    }
-
-	
 	public static void resetOnLifeLost()
 	{
-		fuel = DEFAULT_FUEL;
 		health = DEFAULT_HEALTH;
 	}
 
 	public static void resetOnGameOver()
 	{
-		fuel = DEFAULT_FUEL;
 		health = DEFAULT_HEALTH;
 		score = DEFAULT_SCORE;
 		lives = DEFAULT_LIVES;
