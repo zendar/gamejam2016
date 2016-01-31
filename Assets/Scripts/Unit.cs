@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour {
 
 	public SpellType contactSpell;
 	public float contactSpellCooldown;
+	public float contactSpellDelay = 1f; // Time between
 
 	private Rigidbody2D _rbody; 
 	private ParticleSystem _particlesBlood;
@@ -76,6 +77,7 @@ public class Unit : MonoBehaviour {
 		spell.target = other;
 		spell.Activate();
 		OnSpellCast(spell);
+		contactSpellCooldown = contactSpellDelay;
 		return spell;
 	}
 
@@ -169,6 +171,9 @@ public class Unit : MonoBehaviour {
         if (gameObject.transform.position.y <= pitPoint)
         {
             Destroy(gameObject);
+        }
+        if(contactSpellCooldown > 0){
+        	contactSpellCooldown -= Time.deltaTime;
         }
     }
 
