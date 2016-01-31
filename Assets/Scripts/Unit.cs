@@ -105,22 +105,26 @@ public class Unit : MonoBehaviour {
 	}
 
 	public virtual void Die(Unit attacker, Spell spell){
-		//Debug.Log("Got killed by " + spell.spellType.name + " :(");
-			
-		if(_particlesBlood != null){
-			_particlesBlood.transform.SetParent(null, false);
-			_particlesBlood.transform.position = transform.position;
-			Destroy(_particlesBlood.gameObject, 3.0f); // if particles live for at most 5 secs
-		}
+        //Debug.Log("Got killed by " + spell.spellType.name + " :(");
 
+        if (_particlesBlood != null)
+        {
+            _particlesBlood.transform.SetParent(null, false);
+            _particlesBlood.transform.position = transform.position;
+            Destroy(_particlesBlood.gameObject, 3.0f); // if particles live for at most 5 secs
+        }
 		Destroy(gameObject);
 	}
 
 	// Override for effects and whatnot
 	public virtual void TakeDamage(Unit attacker, Spell spell, float damage){
 		health -= damage;
-		if(health <= 0){
-			Die(attacker, spell);
+        if (health <= 0) {
+            if (gameObject.GetComponent<Beholder>())
+            { 
+                LevelManager.LoadLevel(gameObject.GetComponent<Beholder>().nextLevel);
+            }
+            Die(attacker, spell);
 		}
 
 		if(_particlesBlood != null){
