@@ -10,6 +10,7 @@ public class Beholder : MonoBehaviour
     public float maxSpeed;
     public SpellType spell;
     public string nextLevel;
+    public AudioClip scream;
 
     float turnCount;
     float shotCount;
@@ -37,6 +38,8 @@ public class Beholder : MonoBehaviour
         if (shotCount <= 0)
         {
             castSpell();
+            GetComponent<AudioSource>().clip = scream;
+            GetComponent<AudioSource>().Play();
             shotCount = shotRate;
         }
 
