@@ -8,6 +8,7 @@ public class Unit : MonoBehaviour {
 
 	public float maxSpeed;
 	public float walkSpeed;
+    public float pitPoint;
 
 	public SpellType contactSpell;
 	public float contactSpellCooldown;
@@ -160,6 +161,14 @@ public class Unit : MonoBehaviour {
    			}
    		}
    	}
+
+    void Update()
+    {
+        if (gameObject.transform.position.y <= pitPoint)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     bool IsAboveMaxSpeed(float lSpeed){
         if(maxSpeed < lSpeed || -maxSpeed > lSpeed)
