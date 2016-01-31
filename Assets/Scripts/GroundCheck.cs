@@ -11,13 +11,12 @@ public class GroundCheck : MonoBehaviour{
     void FixedUpdate()
     {
 
-//		Debug.DrawLine(firstPoint,secorndPoint);
 
         if (_playerControls != null)
         {
 			CircleCollider2D collider = gameObject.GetComponent<CircleCollider2D>();
-		Vector2 firstPoint = new Vector2((transform.position.x-(collider.radius)*transform.localScale.x)+0.05f, transform.position.y - (collider.radius*transform.localScale.y)-0.28f);
-		Vector2 secorndPoint = new Vector2(transform.position.x + collider.radius*transform.localScale.x-0.05f , transform.position.y - (collider.radius*transform.localScale.y)-0.6f);
+		Vector2 firstPoint = new Vector2((transform.position.x-(collider.radius)*transform.localScale.x)+0.1f, transform.position.y - (collider.radius*transform.localScale.y)-0.28f);
+		Vector2 secorndPoint = new Vector2(transform.position.x + collider.radius*transform.localScale.x-0.2f , transform.position.y - (collider.radius*transform.localScale.y)-0.6f);
 
             if (Physics2D.OverlapArea(firstPoint, secorndPoint))
             {
@@ -27,6 +26,9 @@ public class GroundCheck : MonoBehaviour{
             {
                 _playerControls.grounded = false;
             }
+
+//			Debug.DrawLine(firstPoint,secorndPoint);
+
         }
         if (_ai != null)
         {
