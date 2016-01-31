@@ -5,6 +5,11 @@ public class PlayerUnit : Unit{
 		Debug.Log("Ded");
 	}
 
+	public override void TakeDamage(Unit attacker, Spell spell, float damage){
+		base.TakeDamage(attacker, spell, damage);
+		UIController.Instance.UpdateHP(this);
+	}
+
 	void OnLevelWasLoaded(int level){
 		health = maxHealth;
 	}

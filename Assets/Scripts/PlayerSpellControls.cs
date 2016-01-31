@@ -19,6 +19,8 @@ public class PlayerSpellControls : MonoBehaviour{
 			CastSpell();
             shotCounter = shotRate;
 		}
+
+		
 	}
 
 	public void CastSpell(){
