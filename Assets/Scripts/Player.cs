@@ -14,6 +14,7 @@ public class Player : MonoBehaviour{
 	void Awake(){
 		_instance = this;
 		SimpleCameraFollow.target = transform;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	void Start(){}
