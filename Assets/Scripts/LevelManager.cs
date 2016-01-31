@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour{
 	}
 
 	public static void Reload(){
+		Debug.Log(Instance.currentLevel);
 		SceneManager.LoadScene(Instance.currentLevel);
 	}
 }
