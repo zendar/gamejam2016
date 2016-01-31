@@ -105,7 +105,7 @@ public class Unit : MonoBehaviour {
 	}
 
 	public virtual void Die(Unit attacker, Spell spell){
-		Debug.Log("Got killed by " + spell.spellType.name + " :(");
+		//Debug.Log("Got killed by " + spell.spellType.name + " :(");
 			
 		if(_particlesBlood != null){
 			_particlesBlood.transform.SetParent(null, false);

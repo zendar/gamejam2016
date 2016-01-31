@@ -9,6 +9,7 @@ public class Beholder : MonoBehaviour
     public float shotRate;
     public float maxSpeed;
     public SpellType spell;
+    public string nextLevel;
 
     float turnCount;
     float shotCount;
@@ -53,6 +54,11 @@ public class Beholder : MonoBehaviour
             {
                 _rigidb.velocity = new Vector2(-maxSpeed, _rigidb.velocity.y);
             }
+        }
+
+        if (gameObject == null)
+        {
+            LevelManager.LoadLevel(nextLevel);
         }
     }
     bool IsAboveMaxSpeed(float lSpeed)
