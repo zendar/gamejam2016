@@ -20,6 +20,11 @@ public class LevelManager : MonoBehaviour{
 	}
 
 	public static void LoadLevel(string level){
+		Instance.currentLevel = level;
 		SceneManager.LoadScene(level);
+	}
+
+	public static void Reload(){
+		SceneManager.LoadScene(Instance.currentLevel);
 	}
 }
