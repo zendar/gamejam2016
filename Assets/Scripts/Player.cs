@@ -24,4 +24,8 @@ public class Player : MonoBehaviour{
 		GetComponent<AudioSource>().Play();
 		UIController.Instance.UpdateProgress(relics.Count);
 	}
+
+	void OnLevelWasLoaded(int level){
+		relics = new List<string>();
+	}
 }
