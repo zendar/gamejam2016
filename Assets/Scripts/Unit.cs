@@ -3,7 +3,7 @@ using UnityEngine;
 public class Unit : MonoBehaviour {
 	public bool friendly;
 	public float health;
-	public float startHealth;
+	public float maxHealth;
 	public float mana;
 
 	public float maxSpeed;
@@ -28,6 +28,8 @@ public class Unit : MonoBehaviour {
 		if(particlesWalkObj != null){
 			_particlesWalk = particlesWalkObj.GetComponent<ParticleSystem>();
 		}
+
+		health = maxHealth;
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
