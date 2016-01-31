@@ -123,6 +123,7 @@ public class Unit : MonoBehaviour {
             if (gameObject.GetComponent<Beholder>())
             { 
                 LevelManager.LoadLevel(gameObject.GetComponent<Beholder>().nextLevel);
+                Destroy(attacker.gameObject);
             }
             Die(attacker, spell);
 		}
