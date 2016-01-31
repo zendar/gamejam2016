@@ -5,6 +5,7 @@ public class PlayerSpellControls : MonoBehaviour{
 	public List<SpellType> spells;
     public float shotRate;
 	public int activeSpell; // an index for spells
+    public AudioClip castAudio;
 
     private float shotCounter;
 	void Start(){
@@ -20,7 +21,7 @@ public class PlayerSpellControls : MonoBehaviour{
             shotCounter = shotRate;
 		}
 
-		
+
 	}
 
 	public void CastSpell(){
@@ -35,5 +36,9 @@ public class PlayerSpellControls : MonoBehaviour{
         Vector2 normalized = (Vector2)direction;
         normalized = normalized / normalized.magnitude;
         GetComponent<Unit>().CastSpell(spells[activeSpell], normalized);
+
+
+        GetComponent<AudioSource>().clip = castAudio;
+		GetComponent<AudioSource>().Play();
 	}
 }

@@ -14,6 +14,8 @@ public class Unit : MonoBehaviour {
 	public float contactSpellCooldown;
 	public float contactSpellDelay = 1f; // Time between
 
+	public AudioClip hurtClip;
+
 	private Rigidbody2D _rbody; 
 	private ParticleSystem _particlesBlood;
 	private ParticleSystem _particlesWalk;
@@ -104,9 +106,7 @@ public class Unit : MonoBehaviour {
 		Debug.Log("Cast spell " + spell.spellType.name + "!");
 	}
 
-	public virtual void Die(Unit attacker, Spell spell){
-        //Debug.Log("Got killed by " + spell.spellType.name + " :(");
-
+	public virtual void Die(Unit attacker, Spell spell){			
         if (_particlesBlood != null)
         {
             _particlesBlood.transform.SetParent(null, false);
@@ -118,6 +118,11 @@ public class Unit : MonoBehaviour {
 
 	// Override for effects and whatnot
 	public virtual void TakeDamage(Unit attacker, Spell spell, float damage){
+		if(GetComponent<AudioSource>() != null && hurtClip != null){
+			GetComponent<AudioSource>().clip = hurtClip;
+			GetComponent<AudioSource>().Play();
+		}
+
 		health -= damage;
         if (health <= 0) {
             if (gameObject.GetComponent<Beholder>())
@@ -175,9 +180,8 @@ public class Unit : MonoBehaviour {
     {
         if (gameObject.transform.position.y <= pitPoint)
         {
-            Die(null, null);
+            Destroy(gameObject);
         }
-
         if(contactSpellCooldown > 0){
         	contactSpellCooldown -= Time.deltaTime;
         }
