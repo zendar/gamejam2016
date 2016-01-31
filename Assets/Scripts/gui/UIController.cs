@@ -19,11 +19,11 @@ public class UIController : MonoBehaviour{
 	}
 
 	public void UpdateHP(Unit unit){
-		hpText.text = unit.health + "/"+unit.maxHealth;
+		hpText.text = "HP: "+unit.health + "/"+unit.maxHealth;
 	}
 
 	public void UpdateProgress(int newProgress){
-		progress.text = newProgress + "/" + Level.Instance.relics.Count;
+		progress.text = "Relics: "+newProgress + "/" + Level.Instance.relics.Count;
 	}
 
 	public void UpdateSpellSelection(){
@@ -31,6 +31,8 @@ public class UIController : MonoBehaviour{
 		var controller = Player.Instance.GetComponent<PlayerSpellControls>();
 
 		if(controller.activeSpell > 0 && controller.spells.Count > controller.activeSpell)
-			spellText.text = controller.spells[controller.activeSpell].name;
+			spellText.text = "Spell: "+controller.spells[controller.activeSpell].name;
+		else
+			spellText.text = "No spell";
 	}
 }

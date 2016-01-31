@@ -23,6 +23,10 @@ public class Level : MonoBehaviour{
 
 	void Start(){
 		player = Player.Instance;
+		
+		UIController.Instance.UpdateSpellSelection();
+		UIController.Instance.UpdateHP(Player.Instance.GetComponent<Unit>());
+		UIController.Instance.UpdateProgress(0);
 	}
 
 	void Restart(){

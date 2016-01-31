@@ -19,6 +19,7 @@ public class Cauldron : MonoBehaviour {
 				open = true;
 				if(!string.IsNullOrEmpty(Level.Instance.spellReward.name)){
 					player.GetComponent<PlayerSpellControls>().spells.Add(Level.Instance.spellReward);
+					UIController.Instance.UpdateSpellSelection();
 				}
 			}
 		}
