@@ -26,6 +26,7 @@ public class BoltSpell : DirectionalSpell {
 	}
 	public virtual void Detonate(Unit hit){}
     public override void Activate(){
+        Debug.Log(direction);
         GetComponent<Rigidbody2D>().velocity = direction * speed;
     }
 }
