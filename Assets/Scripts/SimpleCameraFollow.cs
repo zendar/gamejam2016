@@ -7,7 +7,7 @@ public class SimpleCameraFollow : MonoBehaviour{
 
 	public static Transform target;
 
-	void FixedUpdate(){
+	void Update(){
 		Vector3 targetPos = target.position;
 		Vector3 smooth = Vector3.SmoothDamp(transform.position, targetPos+offset, ref velocity, smoothTime);
 		transform.position = new Vector3(smooth.x, smooth.y, transform.position.z);

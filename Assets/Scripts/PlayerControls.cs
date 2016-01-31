@@ -30,11 +30,11 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
         if(horizontal != 0)
-            _unit.Move(horizontal);
+            _unit.Move(horizontal * Time.deltaTime*100.0f);
     }
 
     void Jump()
