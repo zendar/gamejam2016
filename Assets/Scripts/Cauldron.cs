@@ -10,7 +10,6 @@ public class Cauldron : MonoBehaviour {
 			Debug.Log(player.relics);
 			Debug.Log(Level.Instance);
 			if(player.relics.Count >= Level.Instance.relics.Count){
-				Debug.Log("We got dem crazy relics man");
 				Destroy(door);
 			}
 			
