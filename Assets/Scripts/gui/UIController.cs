@@ -30,7 +30,7 @@ public class UIController : MonoBehaviour{
 
 		var controller = Player.Instance.GetComponent<PlayerSpellControls>();
 
-		if(controller.activeSpell > 0 && controller.spells.Count > controller.activeSpell)
+		if(controller.activeSpell >= 0 && controller.spells.Count > controller.activeSpell)
 			spellText.text = "Spell: "+controller.spells[controller.activeSpell].name;
 		else
 			spellText.text = "No spell";

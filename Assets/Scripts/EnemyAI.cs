@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour{
 
 	// The distance the enemy want to be from the player
 	public Vector2 targetDistance;
+	public Vector2 wakeDistance;
 
 	[HideInInspector]
 	public bool grounded;
@@ -34,27 +35,18 @@ public class EnemyAI : MonoBehaviour{
 				_unit.Move(delta.x);
 			}
 		}
+
+		if(!movementEnabled){
+			Bounds bounds = new Bounds(transform.position, wakeDistance);
+			if(bounds.Contains(_player.transform.position)){
+				movementEnabled = true;
+			}
+		}
 	}
 
 	public void Jump(){
 		if(grounded){
 			_rbody.AddForce(new Vector2(0, 100*jumpForce));
 		}
-	}
-
-	void OnCollisionStay2D(Collision2D coll){
-		if(coll.gameObject.GetComponent<PlayerControls>() != null){			
-			movementEnabled = false;
-		}
-	}
-
-	void OnCollisionExit2D(Collision2D coll){
-		if(coll.gameObject.GetComponent<PlayerControls>() != null){			
-			movementEnabled = true;
-		}
-	}
-
-	void OnCollisionEnter(){
-		
 	}
 }
