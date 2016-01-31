@@ -17,6 +17,10 @@ public class Level : MonoBehaviour{
 		}
 	}
 
+	void Awake(){
+		_instance = this;
+	}
+
 	void Start(){
 		player = Player.Instance;
 	}
