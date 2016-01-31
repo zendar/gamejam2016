@@ -170,8 +170,9 @@ public class Unit : MonoBehaviour {
     {
         if (gameObject.transform.position.y <= pitPoint)
         {
-            Destroy(gameObject);
+            Die(null, null);
         }
+
         if(contactSpellCooldown > 0){
         	contactSpellCooldown -= Time.deltaTime;
         }
