@@ -15,8 +15,8 @@ public class GroundCheck : MonoBehaviour{
         if (_playerControls != null)
         {
 			CircleCollider2D collider = gameObject.GetComponent<CircleCollider2D>();
-		Vector2 firstPoint = new Vector2((transform.position.x-(collider.radius)*transform.localScale.x)+0.1f, transform.position.y - (collider.radius*transform.localScale.y)-0.28f);
-		Vector2 secorndPoint = new Vector2(transform.position.x + collider.radius*transform.localScale.x-0.2f , transform.position.y - (collider.radius*transform.localScale.y)-0.6f);
+		Vector2 firstPoint = new Vector2((transform.position.x-(collider.radius)*transform.localScale.x)+0.33f, transform.position.y - (collider.radius*transform.localScale.y)-0.28f);
+		Vector2 secorndPoint = new Vector2(transform.position.x + collider.radius*transform.localScale.x-0.33f , transform.position.y - (collider.radius*transform.localScale.y)-0.6f);
 
             if (Physics2D.OverlapArea(firstPoint, secorndPoint))
             {
