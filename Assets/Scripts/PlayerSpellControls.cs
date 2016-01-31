@@ -1,7 +1,8 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerSpellControls : MonoBehaviour{
-	public SpellType[] spells;
+	public List<SpellType> spells;
     public float shotRate;
 	public int activeSpell; // an index for spells
 
@@ -21,7 +22,7 @@ public class PlayerSpellControls : MonoBehaviour{
 	}
 
 	public void CastSpell(){
-		if(activeSpell >= spells.Length)
+		if(activeSpell >= spells.Count)
 			return;
 
     	Camera.main.ResetWorldToCameraMatrix();    

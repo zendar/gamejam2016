@@ -6,7 +6,7 @@ public class LevelManager : MonoBehaviour{
 	public string currentLevel;
 
 	public string[] levels;
-	
+
 	private static LevelManager _instance;
 	public static LevelManager Instance {
 		get{
@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour{
 
 	void Awake(){
 		_instance = this;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	public static void LoadLevel(string level){

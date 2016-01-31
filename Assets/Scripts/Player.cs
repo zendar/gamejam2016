@@ -21,5 +21,6 @@ public class Player : MonoBehaviour{
 
 	public void PickUpRelic(string relic){
 		relics.Add(relic);
+		GetComponent<AudioSource>().Play();
 	}
 }
