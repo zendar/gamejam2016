@@ -13,11 +13,21 @@ public class Unit : MonoBehaviour {
 	public float contactSpellCooldown;
 
 	private Rigidbody2D _rbody; 
-	private ParticleSystem _particles;
+	private ParticleSystem _particlesBlood;
+	private ParticleSystem _particlesWalk;
 
 	void Start(){
 		_rbody = GetComponent<Rigidbody2D>();
-		_particles = GetComponentInChildren<ParticleSystem>();
+		
+		var particlesBloodObj = transform.FindChild("BloodParticles");
+		if(particlesBloodObj != null){
+			_particlesBlood = particlesBloodObj.GetComponent<ParticleSystem>();
+		}
+		
+		var particlesWalkObj = transform.Find("MoveParticles");
+		if(particlesWalkObj != null){
+			_particlesWalk = particlesWalkObj.GetComponent<ParticleSystem>();
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
@@ -92,10 +102,10 @@ public class Unit : MonoBehaviour {
 	public virtual void Die(Unit attacker, Spell spell){
 		Debug.Log("Got killed by " + spell.spellType.name + " :(");
 			
-		if(_particles != null){
-			_particles.transform.SetParent(null, false);
-			_particles.transform.position = transform.position;
-			Destroy(_particles.gameObject, 3.0f); // if particles live for at most 5 secs
+		if(_particlesBlood != null){
+			_particlesBlood.transform.SetParent(null, false);
+			_particlesBlood.transform.position = transform.position;
+			Destroy(_particlesBlood.gameObject, 3.0f); // if particles live for at most 5 secs
 		}
 
 		Destroy(gameObject);
@@ -108,8 +118,8 @@ public class Unit : MonoBehaviour {
 			Die(attacker, spell);
 		}
 
-		if(_particles != null){
-			_particles.Emit((int)damage*10);
+		if(_particlesBlood != null){
+			_particlesBlood.Emit((int)damage*10);
 		}
 	}
 
@@ -135,6 +145,20 @@ public class Unit : MonoBehaviour {
                 _rbody.velocity = new Vector2(-maxSpeed, _rbody.velocity.y);
             }
         }
+   	}
+
+   	void FixedUpdate(){
+   		if(_particlesWalk != null ){
+   			var emission = _particlesWalk.emission;
+   			if(_rbody.velocity.x != 0){
+   				if(!emission.enabled){
+   					emission.enabled = true;
+   					_particlesWalk.Play();
+   				}
+   			}else if(emission.enabled){
+   				emission.enabled = false;
+   			}
+   		}
    	}
 
     bool IsAboveMaxSpeed(float lSpeed){
